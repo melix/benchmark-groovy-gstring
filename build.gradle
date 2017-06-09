@@ -1,0 +1,23 @@
+plugins {
+  id "me.champeau.gradle.jmh" version "0.3.1"
+}
+
+apply plugin: 'groovy'
+
+repositories {
+   jcenter()
+}
+
+dependencies {
+   compile 'org.codehaus.groovy:groovy:2.4.11'
+}
+
+jmh {
+    resultFormat = 'csv'
+    resultsFile = file('build/reports/benchmarks.csv')
+    warmupForks = 0
+    warmupIterations = 10
+    fork = 1
+    iterations = 20
+}
+
